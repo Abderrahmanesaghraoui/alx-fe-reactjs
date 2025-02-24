@@ -7,6 +7,7 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
+import React, { useState } from 'react';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -45,6 +46,10 @@ function App() {
             <UserProfile name="Abderrahmane" age="26" bio="im a front-end student 
             free palestine" />
         </div>
+        <div>
+      <h1 style={{ textAlign: 'center', color: '#333' }}>React Counter App</h1>
+      <Counter />
+    </div>
     </>
 
 
