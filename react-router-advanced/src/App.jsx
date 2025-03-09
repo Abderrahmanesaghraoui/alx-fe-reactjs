@@ -9,6 +9,13 @@ import Profile from './components/Profile';
 import BlogPost from './components/BlogPost';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import Profile from './components/Profile';
+import BlogPost from './components/BlogPost'; // Import BlogPost component
+import ProtectedRoute from './components/ProtectedRoute';
+import Login from './components/Login';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -53,6 +60,23 @@ function App() {
   <Route path="details" element={<ProfileDetails />} />
   <Route path="settings" element={<ProfileSettings />} />
 </Route>
+<Router>
+      <nav style={{ marginBottom: '20px' }}>
+        <Link to="/" style={{ marginRight: '10px' }}>Home</Link>
+        <Link to="/profile" style={{ marginRight: '10px' }}>Profile</Link>
+        <Link to="/blog/1" style={{ marginRight: '10px' }}>Blog Post 1</Link>
+        <Link to="/blog/2">Blog Post 2</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}>
+          <Route path="details" element={<ProfileDetails />} /> {/* Nested route for ProfileDetails */}
+          <Route path="settings" element={<ProfileSettings />} /> {/* Nested route for ProfileSettings */}
+        </Route>
+        <Route path="/blog/:id" element={<BlogPost />} /> {/* Dynamic route for blog posts */}
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
     </>
   )
 }
