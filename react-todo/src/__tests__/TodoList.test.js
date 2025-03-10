@@ -14,10 +14,10 @@ describe('TodoList Component', () => {
     render(<TodoList />);
     const input = screen.getByPlaceholderText('Add a new todo');
     const addButton = screen.getByText('Add');
-
+  
     fireEvent.change(input, { target: { value: 'Test Todo' } });
     fireEvent.click(addButton);
-
+  
     expect(screen.getByText('Test Todo')).toBeInTheDocument();
   });
 
