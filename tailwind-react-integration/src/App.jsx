@@ -2,6 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import React from 'react';
+import UserProfile from './components/UserProfile';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,6 +37,9 @@ function App() {
       <p className="mt-4 text-gray-700">
         This is a simple example of using Tailwind CSS in a React app.
       </p>
+      <div>
+      <UserProfile />
+    </div>
     </div>
     </>
   )
