@@ -3,6 +3,10 @@ import { useState } from 'react';
 const Search = ({ onSearch }) => {
   const [query, setQuery] = useState('');
 
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch(query);
@@ -13,7 +17,7 @@ const Search = ({ onSearch }) => {
       <input
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={handleChange}
         placeholder="Search GitHub users"
       />
       <button type="submit">Search</button>
